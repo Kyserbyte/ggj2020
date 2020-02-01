@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     float vel = 0f;
 
-    [Range(10,300)]
+    [Range(10, 300)]
     public float MAX_VEL = 50f;
     public Sprite frame0, frame1, frame2;
 
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-  
+
     }
 
     void Update()
@@ -35,12 +35,14 @@ public class Player : MonoBehaviour
             if (timer == 0)
             {
                 GetComponent<SpriteRenderer>().sprite = frame1;
-            } else if(timer == MAX_FRAME)
+            }
+            else if (timer == MAX_FRAME)
             {
                 GetComponent<SpriteRenderer>().sprite = frame2;
             }
             timer++;
-        } else if(Input.GetKeyUp(KeyCode.Space))
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
             timer = 0;
             GetComponent<SpriteRenderer>().sprite = frame0;
@@ -53,6 +55,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
     }
 }

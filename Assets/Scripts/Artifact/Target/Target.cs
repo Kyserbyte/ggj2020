@@ -19,7 +19,7 @@ public class Target : MonoBehaviour
     void Update()
     {
         transform.localScale += scaleChange;
-        if(transform.localScale.x <= 0)
+        if (transform.localScale.x <= 0)
         {
             newTarget();
         }
