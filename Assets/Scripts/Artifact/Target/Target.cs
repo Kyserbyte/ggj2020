@@ -12,7 +12,7 @@ public class Target : MonoBehaviour
 
     private void newTarget()
     {
-        transform.localScale = new Vector3(1, 1, 0.5f);
+        transform.localScale = new Vector3(0.55f, 0.55f, 0.5f);
         transform.RotateAround(Vector3.zero, Vector3.forward, Random.Range(0f, 360f));
     }
 
@@ -23,5 +23,9 @@ public class Target : MonoBehaviour
         {
             newTarget();
         }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        newTarget();
     }
 }

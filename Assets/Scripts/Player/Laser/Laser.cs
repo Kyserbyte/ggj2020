@@ -5,10 +5,11 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
 
-    Vector3 scaleChange;
+    Vector3 scaleChange, posChange;
     void Start()
     {
-        scaleChange = new Vector3(0.66f, 0);
+        scaleChange = new Vector3(4, 0);
+        posChange = new Vector3(6, 0);
     }
 
     void Update()
@@ -16,14 +17,16 @@ public class Laser : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space))
         {
-            if (transform.localScale.x <= 2)
+            if (transform.localScale.x < 12)
             {
                 transform.localScale += scaleChange;
+                transform.localPosition += posChange;
             }
             
         } 
         if(Input.GetKeyUp(KeyCode.Space)) {
-            transform.localScale = new Vector3(0.05f, 1, 1);
+            transform.localScale = new Vector3(0, 4);
+            transform.localPosition = new Vector3(0.4f, 0);
         }
     }
 }
