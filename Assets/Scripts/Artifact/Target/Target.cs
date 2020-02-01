@@ -5,8 +5,15 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     Vector3 scaleChange = new Vector3(-0.003f, -0.003f);
+
+    public float MAX_HP = 100f;
+    public float HITS_TO_WIN = 20f;
+
+    public float coreHp;
+
     void Start()
     {
+        coreHp = 11f;
         newTarget();
     }
 
@@ -21,11 +28,26 @@ public class Target : MonoBehaviour
         transform.localScale += scaleChange;
         if(transform.localScale.x <= 0)
         {
+            UpdateHp(-1);
             newTarget();
+        }
+    }
+
+    void UpdateHp(int hit)
+    {
+        coreHp += hit * (MAX_HP / HITS_TO_WIN) * (hit > 0 ? 1f : 2f);
+        if(coreHp >= MAX_HP)
+        {
+            Debug.Log("Victory");
+        }
+        if(coreHp <= 0)
+        {
+            Debug.Log("Defeat");
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        UpdateHp(1);
         newTarget();
     }
 }

@@ -13,14 +13,21 @@ public class Player : MonoBehaviour
 
     int timer = 0;
     public int MAX_FRAME = 3;
+    public float LIVES = 5;
+    public float MAX_HP = 100;
+    float playerHp;
 
     void Start()
     {
-  
+        playerHp = MAX_HP;
     }
 
     void Update()
     {
+        if(playerHp <= 0)
+        {
+            Debug.Log("Defeat");
+        }
         vel = 0f;
         if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.Space))
         {
@@ -47,12 +54,10 @@ public class Player : MonoBehaviour
         }
 
         transform.RotateAround(Vector3.zero, Vector3.forward, vel * Time.deltaTime);
-
-
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        playerHp -= MAX_HP / LIVES;
     }
 }
