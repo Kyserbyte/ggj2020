@@ -8,7 +8,6 @@ public class Fire : MonoBehaviour
     public GameObject Bullet;
     public float Bullet_Forward_Force;
     public float randomness = 1;
-    public float magic = 11;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +31,6 @@ public class Fire : MonoBehaviour
 
                 //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.
                 Temporary_RigidBody.AddForce(new Vector3(Random.Range(-1f, 1f) * Bullet_Forward_Force, Random.Range(-1f, 1f) * Bullet_Forward_Force), ForceMode2D.Impulse);
-                if (((Temporary_Bullet_Handler.transform.localPosition.x * Temporary_Bullet_Handler.transform.localPosition.x) + (Temporary_Bullet_Handler.transform.localPosition.y * Temporary_Bullet_Handler.transform.localPosition.y)) >= 169f)
-                {
-                    Destroy(Temporary_Bullet_Handler);
-
-                }
             }
         }
     }
