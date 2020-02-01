@@ -1,7 +1,7 @@
 ﻿public enum GameState
 {
-    Play,
     Pause,
+    Play,
     Restart,
     GameOver,
     Win

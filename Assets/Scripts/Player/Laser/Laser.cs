@@ -14,19 +14,22 @@ public class Laser : MonoBehaviour
 
     void Update()
     {
-        
-        if (Input.GetKey(KeyCode.Space))
+        if (GameManager.Instance.GameState == GameState.Play)
         {
-            if (transform.localScale.x < 12)
+            if (Input.GetKey(KeyCode.Space))
             {
-                transform.localScale += scaleChange;
-                transform.localPosition += posChange;
+                if (transform.localScale.x < 12)
+                {
+                    transform.localScale += scaleChange;
+                    transform.localPosition += posChange;
+                }
+
             }
-            
-        } 
-        if(Input.GetKeyUp(KeyCode.Space)) {
-            transform.localScale = new Vector3(0, 4);
-            transform.localPosition = new Vector3(0.4f, 0);
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                transform.localScale = new Vector3(0, 4);
+                transform.localPosition = new Vector3(0.4f, 0);
+            }
         }
     }
 }

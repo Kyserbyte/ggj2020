@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
         {
             _gameState = value;
             OnGameStateChanged?.Invoke(_gameState);
+            if (_gameState == GameState.GameOver || _gameState == GameState.Win)
+            {
+                Restart();
+            }
         }
     }
 
@@ -32,13 +37,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void Restart()
     {
-
+        StartCoroutine(_Restart());
     }
 
-    void Update()
+    private IEnumerator _Restart()
     {
-
+        yield return new WaitForSeconds(3f);
+        GameState = GameState.Restart;
     }
 }
