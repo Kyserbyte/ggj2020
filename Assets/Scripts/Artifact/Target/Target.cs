@@ -8,7 +8,7 @@ public class Target : MonoBehaviour
 
     public float MAX_HP = 100f;
     public float HITS_TO_WIN = 20f;
-    public float INIT_HP = 21f;
+    public float INIT_HP;
 
     public ParticleSystem particle;
 
@@ -45,7 +45,7 @@ public class Target : MonoBehaviour
 
     private void NewTarget()
     {
-        transform.localScale = new Vector3(0.29f, 0.29f, 0.5f);
+        transform.localScale = new Vector3(0.4f, 0.4f, 0.5f);
         transform.RotateAround(Vector3.zero, Vector3.forward, Random.Range(0f, 360f));
     }
 

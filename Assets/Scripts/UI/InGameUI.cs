@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
-    public GameObject countDownPanel;
+    public GameObject gameEndPanel;
     public TextMeshProUGUI countDownText;
     public TextMeshProUGUI gameEndText;
     public Image playerHp;
@@ -23,9 +23,8 @@ public class InGameUI : MonoBehaviour
     private void _Init()
     {
         _countDown = countDownFrom;
-        countDownPanel.SetActive(true);
+        gameEndPanel.SetActive(false);
         countDownText.gameObject.SetActive(false);
-        gameEndText.gameObject.SetActive(false);
     }
 
     private void _OnGameStateChanged(GameState state)
@@ -35,12 +34,12 @@ public class InGameUI : MonoBehaviour
             case GameState.GameOver:
                 _Init();
                 gameEndText.text = "GAME OVER";
-                gameEndText.gameObject.SetActive(true);
+                gameEndPanel.SetActive(true);
                 break;
             case GameState.Win:
                 _Init();
                 gameEndText.text = "YOU WIN!";
-                gameEndText.gameObject.SetActive(true);
+                gameEndPanel.SetActive(true);
                 break;
             case GameState.Restart:
                 _Init();
@@ -84,7 +83,7 @@ public class InGameUI : MonoBehaviour
 
     private void _CountdownEnd()
     {
-        countDownPanel.SetActive(false);
+        countDownText.gameObject.SetActive(false);
         GameManager.Instance.GameState = GameState.Play;
     }
 }

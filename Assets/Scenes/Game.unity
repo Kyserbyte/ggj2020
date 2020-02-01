@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &104965159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4407352464122567426, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 881220595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &349410157
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +763,11 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4407352464122567426, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4407352464280969505, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -767,6 +778,16 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6949891534480315602, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
+        type: 3}
+      propertyPath: gameEndPanel
+      value: 
+      objectReference: {fileID: 104965159}
+    - target: {fileID: 6949891534480315602, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 583686354}
     - target: {fileID: 1253708950363808916, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -6103,7 +6124,7 @@ Transform:
   m_GameObject: {fileID: 1723839256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.37, y: 1.5, z: 0}
-  m_LocalScale: {x: 0.24229315, y: 0.24229315, z: 0.22026649}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1137675690}
   m_RootOrder: 0
@@ -6170,7 +6191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_HP: 100
   HITS_TO_WIN: 20
-  INIT_HP: 11
+  INIT_HP: 50
   particle: {fileID: 1110901113}
   coreHp: 0
 --- !u!50 &1723839260
