@@ -34,12 +34,12 @@ public class InGameUI : MonoBehaviour
         {
             case GameState.GameOver:
                 _Init();
-                gameEndText.text = "Game Over!";
+                gameEndText.text = "GAME OVER";
                 gameEndText.gameObject.SetActive(true);
                 break;
             case GameState.Win:
                 _Init();
-                gameEndText.text = "You Win!";
+                gameEndText.text = "YOU WIN!";
                 gameEndText.gameObject.SetActive(true);
                 break;
             case GameState.Restart:
