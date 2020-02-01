@@ -10,6 +10,8 @@ public class Target : MonoBehaviour
     public float HITS_TO_WIN = 20f;
     public float INIT_HP = 11f;
 
+    public ParticleSystem particle;
+
     public float coreHp;
 
     private void Awake()
@@ -78,6 +80,7 @@ public class Target : MonoBehaviour
     {
         UpdateHp(1);
         NewTarget();
+        particle.Play();
     }
 
     private void _Defeat()

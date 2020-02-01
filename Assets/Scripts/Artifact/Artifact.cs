@@ -7,7 +7,6 @@ public class Artifact : MonoBehaviour
 
     public Sprite[] core;
     int i = 0;
-
     int timer = 0;
     public int MAX_FRAME = 3;
 
