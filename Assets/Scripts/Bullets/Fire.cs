@@ -8,30 +8,78 @@ public class Fire : MonoBehaviour
     public GameObject Bullet;
     public float Bullet_Forward_Force;
     public float randomness = 1;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        GameManager.Instance.OnGameStateChanged += _OnGameStateChanged;
     }
 
-    // Update is called once per frame
+    void _OnGameStateChanged(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Play:
+                Explosion(20);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    void Start()
+    {
+        GenerateBullets();
+    }
+
     void Update()
     {
-        if (GameManager.Instance.GameState == GameState.Play)
+
+    }
+
+    public void Explosion(int num)
+    {
+        StartCoroutine(_Explosion(num));
+    }
+
+    public void GenerateBullets()
+    {
+        StartCoroutine(_GenerateBullets());
+    }
+
+    private IEnumerator _GenerateBullets()
+    {
+        while (true)
         {
-            if (Input.GetKeyUp(KeyCode.A))
+            if (GameManager.Instance.GameState == GameState.Play)
             {
-                GameObject Temporary_Bullet_Handler;
-                Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
-
-                //Temporary_Bullet_Handler.transform.localPosition += new Vector3(directionX * Bullet_Forward_Force, directionY * Bullet_Forward_Force);
-
-                Rigidbody2D Temporary_RigidBody;
-                Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody2D>();
-
-                //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.
-                Temporary_RigidBody.AddForce(new Vector3(Random.Range(-1f, 1f) * Bullet_Forward_Force, Random.Range(-1f, 1f) * Bullet_Forward_Force), ForceMode2D.Impulse);
+                _SpawnBullet();
             }
+            yield return new WaitForSeconds(1f);
         }
+    }
+
+    private IEnumerator _Explosion(int num)
+    {
+        while (num > 0 && GameManager.Instance.GameState == GameState.Play)
+        {
+            _SpawnBullet();
+            num--;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void _SpawnBullet()
+    {
+        GameObject Temporary_Bullet_Handler;
+        Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation);
+
+        //Temporary_Bullet_Handler.transform.localPosition += new Vector3(directionX * Bullet_Forward_Force, directionY * Bullet_Forward_Force);
+
+        Rigidbody2D Temporary_RigidBody;
+        Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody2D>();
+
+        //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.
+        Temporary_RigidBody.AddForce(new Vector3(Random.Range(-1f, 1f) * Bullet_Forward_Force, Random.Range(-1f, 1f) * Bullet_Forward_Force), ForceMode2D.Impulse);
     }
 }

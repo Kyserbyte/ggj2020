@@ -78,6 +78,8 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Laser laser = other.GetComponent<Laser>();
+        if (laser == null) return;
         UpdateHp(1);
         NewTarget();
         particle.Play();
