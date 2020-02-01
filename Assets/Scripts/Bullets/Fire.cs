@@ -20,6 +20,7 @@ public class Fire : MonoBehaviour
         {
             case GameState.Play:
                 Explosion(20);
+                StartCoroutine(_ScheduleExplosion());
                 break;
             default:
                 break;
@@ -47,6 +48,13 @@ public class Fire : MonoBehaviour
         StartCoroutine(_GenerateBullets());
     }
 
+    private IEnumerator _ScheduleExplosion()
+    {
+        yield return new WaitForSeconds(Random.Range(8f, 15f));
+        Explosion(Random.Range(5,20));
+        StartCoroutine(_ScheduleExplosion());
+    }
+
     private IEnumerator _GenerateBullets()
     {
         while (true)
@@ -55,7 +63,7 @@ public class Fire : MonoBehaviour
             {
                 _SpawnBullet();
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(Random.Range(.2f,1f));
         }
     }
 

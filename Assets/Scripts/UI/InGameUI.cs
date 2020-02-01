@@ -67,6 +67,7 @@ public class InGameUI : MonoBehaviour
     {
         countDownText.text = _countDown.ToString();
         countDownText.gameObject.SetActive(true);
+        SoundManager.instance.StopMusic();
         StartCoroutine(_Countdown());
     }
 
@@ -85,5 +86,6 @@ public class InGameUI : MonoBehaviour
     {
         countDownText.gameObject.SetActive(false);
         GameManager.Instance.GameState = GameState.Play;
+        SoundManager.instance.PlayMusic("Main");
     }
 }
