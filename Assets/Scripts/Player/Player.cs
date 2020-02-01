@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
 
     private void _Defeat()
     {
+        Debug.Log("Defeat from Player HP: " + playerHp);
         GameManager.Instance.GameState = GameState.GameOver;
     }
 }

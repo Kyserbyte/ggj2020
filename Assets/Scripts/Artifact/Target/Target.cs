@@ -82,6 +82,7 @@ public class Target : MonoBehaviour
 
     private void _Defeat()
     {
+        Debug.Log("Defeat from Target HP: " + coreHp);
         GameManager.Instance.GameState = GameState.GameOver;
     }
 
