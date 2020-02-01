@@ -18,10 +18,13 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.forward, spin);
-        if (Vector3.Distance(Vector3.zero, transform.position) >= 45)
+        if (GameManager.Instance.GameState == GameState.Play)
         {
-            Destroy(gameObject);
+            transform.Rotate(Vector3.forward, spin);
+            if (Vector3.Distance(Vector3.zero, transform.position) >= 45)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
