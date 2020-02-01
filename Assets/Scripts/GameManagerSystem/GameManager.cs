@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,5 +47,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         GameState = GameState.Restart;
+        SceneManager.LoadScene(0);
+
     }
 }
