@@ -19,7 +19,11 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+<<<<<<< HEAD
+
+=======
         playerHp = MAX_HP;
+>>>>>>> 5387892d919ccc2829b6d06d171f9ad38a4915d8
     }
 
     void Update()
@@ -60,6 +64,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+<<<<<<< HEAD
+
+=======
         playerHp -= MAX_HP / LIVES;
+>>>>>>> 5387892d919ccc2829b6d06d171f9ad38a4915d8
     }
 }

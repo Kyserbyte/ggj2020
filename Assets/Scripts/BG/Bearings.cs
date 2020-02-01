@@ -8,6 +8,7 @@ public class Bearings : MonoBehaviour
     public int ANGLE = 6;
     int dirBall = 1;
     int dirWheel = 0;
+    float ballSpeed = 1.4f;
     ArrayList sprites = new ArrayList();
     // Start is called before the first frame update
     void Start()
@@ -47,20 +48,25 @@ public class Bearings : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.Space))
         {
             dirBall = 1;
+            ballSpeed = 1.4f;
             dirWheel = 1;
         }
         else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.Space))
         {
             dirBall = -1;
+            ballSpeed = 1.4f;
             dirWheel = -1;
         }
         else
         {
             dirWheel = 0;
+            if(ballSpeed >= 0.05f) { 
+                ballSpeed -= 0.05f;
+            }
         }
         foreach (GameObject sprite in sprites) {
             sprite.transform.RotateAround(Vector3.zero, Vector3.forward, 0.09f * dirWheel);
-            sprite.transform.Rotate(Vector3.forward, 1.4f * dirBall);
+            sprite.transform.Rotate(Vector3.forward, ballSpeed * dirBall);
         }
     }
 }
