@@ -715,6 +715,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.0025024414
       objectReference: {fileID: 0}
+    - target: {fileID: 2659370747200694844, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a9ba8c9df843478892c0f2e6f6b66aa, type: 3}
 --- !u!1 &1137675688
@@ -816,7 +821,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b6a18aaa3b92cc04c86d719ed5bedc5c, type: 3}
   - {fileID: 21300000, guid: 385d9b27c1bd85c4e95fe14129560ac5, type: 3}
   - {fileID: 21300000, guid: 1caf4299cd3ba1e418c0c52f84b03309, type: 3}
-  MAX_FRAME: 3
 --- !u!1 &1197619460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1313,7 @@ MonoBehaviour:
   MAX_HP: 100
   HITS_TO_WIN: 20
   INIT_HP: 11
+  particle: {fileID: 0}
   coreHp: 0
 --- !u!50 &1723839260
 Rigidbody2D:
