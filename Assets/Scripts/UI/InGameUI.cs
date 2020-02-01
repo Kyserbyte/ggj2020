@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
     public GameObject countDownPanel;
     public TextMeshProUGUI countDownText;
     public TextMeshProUGUI gameEndText;
+    public Image playerHp;
+    public Player player;
     public int countDownFrom;
 
     private int _countDown;
@@ -60,7 +61,7 @@ public class InGameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        playerHp.fillAmount = player.playerHp / player.MAX_HP;
     }
 
     public void StartCountdown()
