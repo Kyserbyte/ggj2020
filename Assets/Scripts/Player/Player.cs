@@ -89,7 +89,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        playerHp -= MAX_HP / LIVES;
+        Bullet bullet = other.gameObject.GetComponent<Bullet>();
+        if ( bullet != null)
+        {
+            playerHp -= MAX_HP / LIVES;
+        }
+
     }
 
     private void _Defeat()
