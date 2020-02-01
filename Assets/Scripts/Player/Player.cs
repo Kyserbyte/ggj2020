@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public float LIVES = 5;
     public float MAX_HP = 100;
     public float playerHp;
+    bool invulnerable = false;
 
     private void Awake()
     {
@@ -84,18 +85,47 @@ public class Player : MonoBehaviour
             }
 
             transform.RotateAround(Vector3.zero, Vector3.forward, vel * Time.deltaTime);
+
+            if (invulnerable)
+            {
+                Color tmp = GetComponent<SpriteRenderer>().color;
+
+                tmp.a = 0.2f;
+                tmp.r = 255f;
+
+                GetComponent<SpriteRenderer>().color = tmp;
+            } else
+            {
+                Color tmp = GetComponent<SpriteRenderer>().color;
+                tmp.a = 1f;
+                tmp.r = 1f;
+
+                GetComponent<SpriteRenderer>().color = tmp;
+            }
+
+            
+
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Bullet bullet = other.gameObject.GetComponent<Bullet>();
-        if ( bullet != null)
+        if ( bullet != null && !invulnerable)
         {
             playerHp -= MAX_HP / LIVES;
-        }
-
+            invulnerable = true;
+            StartCoroutine(Invulnerability());
+        }  
     }
+
+    IEnumerator Invulnerability()
+    {
+        yield return new WaitForSeconds(2);
+        invulnerable = false;
+    }
+
 
     private void _Defeat()
     {

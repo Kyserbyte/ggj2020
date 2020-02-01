@@ -7,21 +7,32 @@ public class Artifact : MonoBehaviour
 
     public Sprite[] core;
     int i = 0;
-    int timer = 0;
-    public int MAX_FRAME = 3;
-
+    Target target;
     // Update is called once per frame
     void Update()
     {
-        if(timer == MAX_FRAME) { 
-            if(i > 3)
-            {
-                i = 0;
-            }
-            GetComponent<SpriteRenderer>().sprite = core[i];
-            i++;
-            timer = -1;
+        target = GetComponentsInChildren<Target>()[0];
+        
+        if(target.coreHp < target.MAX_HP / 5)
+        {
+            i = 4;
         }
-        timer++;
+        else if (target.coreHp < (target.MAX_HP / 5) * 2)
+        {
+            i = 3;
+        }
+        else if (target.coreHp < (target.MAX_HP / 5) * 3)
+        {
+            i = 2;
+        }
+        else if (target.coreHp < (target.MAX_HP / 5) * 4)
+        {
+            i = 1;
+        }
+        else if (target.coreHp < target.MAX_HP)
+        {
+            i = 0;
+        }
+        GetComponent<SpriteRenderer>().sprite = core[i];
     }
 }
