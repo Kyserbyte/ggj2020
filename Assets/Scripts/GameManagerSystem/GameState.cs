@@ -2,5 +2,7 @@
 {
     Play,
     Pause,
-    Restart
+    Restart,
+    GameOver,
+    Win
 }

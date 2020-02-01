@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _gameState = value;
-            OnGameStateChanged?.Invoke(this._gameState);
+            OnGameStateChanged?.Invoke(_gameState);
         }
     }
 
