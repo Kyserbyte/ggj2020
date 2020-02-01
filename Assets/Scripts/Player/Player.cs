@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public int MAX_FRAME = 3;
     public float LIVES = 5;
     public float MAX_HP = 100;
-    float playerHp;
+    public float playerHp;
 
     void Start()
     {
