@@ -6,10 +6,38 @@ public class Laser : MonoBehaviour
 {
 
     Vector3 scaleChange, posChange;
-    void Start()
+
+    private void Awake()
     {
+        GameManager.Instance.OnGameStateChanged += _OnGameStateChanged;
+    }
+
+    void _OnGameStateChanged(GameState state)
+    {
+        switch(state)
+        {
+            case GameState.Restart:
+            case GameState.GameOver:
+            case GameState.Win:
+                _Init();
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    private void _Init()
+    {
+        transform.localScale = new Vector3(0, 4, 0);
+        transform.localPosition = Vector3.zero;
         scaleChange = new Vector3(4, 0);
         posChange = new Vector3(6, 0);
+    }
+
+    void Start()
+    {
+        _Init();
     }
 
     void Update()
