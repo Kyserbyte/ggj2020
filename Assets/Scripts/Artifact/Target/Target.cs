@@ -59,6 +59,10 @@ public class Target : MonoBehaviour
                 transform.localScale = targetScale;
                 UpdateHp(-1f * Time.deltaTime);
                 //NewTarget();
+            } else if ((transform.localScale.x >= targetScale.x/2))
+            {
+                transform.localScale += scaleChange * Time.deltaTime;
+                UpdateHp(-0.3f * Time.deltaTime);
             }
             else
             {
