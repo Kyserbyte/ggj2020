@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
         type: 3}
       propertyPath: sfxClips.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
         type: 3}
@@ -199,6 +199,16 @@ PrefabInstance:
         type: 3}
       propertyPath: sfxClips.Array.data[0].name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2149dbb81bce94f8fa2bbc4172ca7200, type: 3}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[1].name
+      value: Gear
       objectReference: {fileID: 0}
     - target: {fileID: 8108064160187839310, guid: c3762adbad7ba4ab58d8aebeda474b1b,
         type: 3}

@@ -28,20 +28,23 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlaySingle(string name)
+    public void PlaySingle(string name, float vol = 1f)
     {
         TBAudioClip clip = sfxClips.Find((a) => { return a.name.Equals(name); });
         if (clip != null && clip.clip != null)
         {
-            PlaySingle(clip.clip);
+            PlaySingle(clip.clip, vol);
         }
     }
 
-    public void PlaySingle(AudioClip clip)
+    public void PlaySingle(AudioClip clip, float vol = 1f)
     {
-
-        efxSource.clip = clip;
-        efxSource.Play();
+        if (efxSource.clip != clip || (efxSource.clip == clip && !efxSource.isPlaying))
+        {
+            efxSource.volume = vol;
+            efxSource.clip = clip;
+            efxSource.Play();
+        }
     }
 
     public void PlayMusic(string name)

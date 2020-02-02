@@ -61,10 +61,12 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.Space))
             {
                 vel = -MAX_VEL;
+                SoundManager.instance.PlaySingle("Gear", 0.3f);
             }
             if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.Space))
             {
                 vel = MAX_VEL;
+                SoundManager.instance.PlaySingle("Gear", 0.3f);
             }
             if (Input.GetKey(KeyCode.Space))
             {
@@ -88,24 +90,11 @@ public class Player : MonoBehaviour
 
             if (invulnerable)
             {
-                Color tmp = GetComponent<SpriteRenderer>().color;
-
-                tmp.a = 0.7f;
-                tmp.r = 255f;
-
-                GetComponent<SpriteRenderer>().color = tmp;
+                GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
             } else
             {
-                Color tmp = GetComponent<SpriteRenderer>().color;
-                tmp.a = 1f;
-                tmp.r = 1f;
-
-                GetComponent<SpriteRenderer>().color = tmp;
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             }
-
-            
-
-
         }
     }
 
