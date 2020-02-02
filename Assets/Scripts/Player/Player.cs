@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
             playerHp -= MAX_HP / LIVES;
             invulnerable = true;
             StartCoroutine(Invulnerability());
-            SoundManager.instance.PlaySingle("Hit" + Random.Range(0, 5));
+            SoundManager.instance.PlayTmp("Hit" + Random.Range(0, 5));
         }
     }
 
