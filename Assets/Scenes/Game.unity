@@ -185,6 +185,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b7a207eb6377400ea85a49443fc93f1, type: 3}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[0].name
+      value: Laser
+      objectReference: {fileID: 0}
     - target: {fileID: 8108064160187839310, guid: c3762adbad7ba4ab58d8aebeda474b1b,
         type: 3}
       propertyPath: Loop
@@ -868,6 +883,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 583686354}
+    - target: {fileID: 6949891534480315602, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
+        type: 3}
+      propertyPath: core
+      value: 
+      objectReference: {fileID: 1723839259}
     - target: {fileID: 1253708950363808916, guid: 8a9ba8c9df843478892c0f2e6f6b66aa,
         type: 3}
       propertyPath: m_havePropertiesChanged

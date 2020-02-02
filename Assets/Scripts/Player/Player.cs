@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
             {
                 Color tmp = GetComponent<SpriteRenderer>().color;
 
-                tmp.a = 0.2f;
+                tmp.a = 0.7f;
                 tmp.r = 255f;
 
                 GetComponent<SpriteRenderer>().color = tmp;

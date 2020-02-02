@@ -51,7 +51,7 @@ public class Laser : MonoBehaviour
                     transform.localScale += scaleChange;
                     transform.localPosition += posChange;
                 }
-
+                SoundManager.instance.PlaySingle("Laser");
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {

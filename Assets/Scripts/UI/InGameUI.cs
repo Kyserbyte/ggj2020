@@ -8,8 +8,13 @@ public class InGameUI : MonoBehaviour
     public GameObject gameEndPanel;
     public TextMeshProUGUI countDownText;
     public TextMeshProUGUI gameEndText;
+
     public Image playerHp;
     public Player player;
+
+    public Image coreHp;
+    public Target core;
+
     public int countDownFrom;
 
     private int _countDown;
@@ -61,6 +66,7 @@ public class InGameUI : MonoBehaviour
     void Update()
     {
         playerHp.fillAmount = player.playerHp / player.MAX_HP;
+        coreHp.fillAmount = core.coreHp / core.MAX_HP;
     }
 
     public void StartCountdown()
