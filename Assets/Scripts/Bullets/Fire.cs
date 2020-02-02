@@ -75,6 +75,7 @@ public class Fire : MonoBehaviour
         steam.Play();
 
         SoundManager.instance.PlayTmp("Explosion");
+        SoundManager.instance.PlayTmp("Steam");
 
         while (num > 0 && GameManager.Instance.GameState == GameState.Play)
         {
