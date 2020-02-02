@@ -9,6 +9,7 @@ public class Fire : MonoBehaviour
     public float Bullet_Forward_Force;
     public float randomness = 1;
     public CameraShake cameraShaker;
+    public ParticleSystem steam;
 
     private void Awake()
     {
@@ -71,6 +72,12 @@ public class Fire : MonoBehaviour
     private IEnumerator _Explosion(int num)
     {
         cameraShaker.Shake();
+        steam.Play();
+        
+        SoundManager.instance.StopSfx();
+        SoundManager.instance.PlaySingle("Explosion");
+        //SoundManager.instance.PlaySingle("Steam");
+
         while (num > 0 && GameManager.Instance.GameState == GameState.Play)
         {
             _SpawnBullet();

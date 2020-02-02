@@ -40,15 +40,19 @@ public class InGameUI : MonoBehaviour
                 _Init();
                 gameEndText.text = "GAME OVER";
                 gameEndPanel.SetActive(true);
+                SoundManager.instance.StopMusic();
+                SoundManager.instance.PlayMusic("Lose");
                 break;
             case GameState.Win:
                 _Init();
                 gameEndText.text = "YOU WIN!";
                 gameEndPanel.SetActive(true);
+                SoundManager.instance.StopMusic();
+                SoundManager.instance.PlayMusic("Win");
                 break;
             case GameState.Restart:
-                _Init();
-                StartCountdown();
+                //_Init();
+                //StartCountdown();
                 break;
             default:
                 break;
@@ -81,10 +85,13 @@ public class InGameUI : MonoBehaviour
     {
         while (_countDown > 0)
         {
+            SoundManager.instance.PlaySingle("12");
             yield return new WaitForSeconds(1.0f);
             _countDown--;
             countDownText.text = _countDown.ToString();
+            SoundManager.instance.StopSfx();
         }
+        SoundManager.instance.PlaySingle("3");
         _CountdownEnd();
     }
 

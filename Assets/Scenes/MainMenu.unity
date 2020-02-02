@@ -353,6 +353,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: musicClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: musicClips.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c67e69aee0c7ef4ca092f1cb5ad2b8d, type: 3}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: musicClips.Array.data[1].name
+      value: Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: musicClips.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e097bd143bf17246a11c616a67a787a, type: 3}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: musicClips.Array.data[2].name
+      value: Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a38e52b5c61acf84aa855a7cbfe4d190, type: 3}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[2].name
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b621cab06955dea4ca49b26c37f62664, type: 3}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: sfxClips.Array.data[3].name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: musicClips.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ca99bbddb9c7c646abee6e8d184bf11, type: 3}
+    - target: {fileID: 8108064160187839311, guid: c3762adbad7ba4ab58d8aebeda474b1b,
+        type: 3}
+      propertyPath: musicClips.Array.data[3].name
+      value: Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3762adbad7ba4ab58d8aebeda474b1b, type: 3}
 --- !u!1 &730293300

@@ -68,6 +68,11 @@ public class SoundManager : MonoBehaviour
         musicSource.Stop();
     }
 
+    public void StopSfx()
+    {
+        efxSource.Stop();
+    }
+
 }
 
 [System.Serializable]
