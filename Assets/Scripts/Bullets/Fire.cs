@@ -52,8 +52,8 @@ public class Fire : MonoBehaviour
 
     private IEnumerator _ScheduleExplosion()
     {
-        yield return new WaitForSeconds(Random.Range(8f, 15f));
-        Explosion(Random.Range(5,20));
+        yield return new WaitForSeconds(Random.Range(7f, 12f));
+        Explosion(Random.Range(10,25));
         StartCoroutine(_ScheduleExplosion());
     }
 
@@ -65,7 +65,7 @@ public class Fire : MonoBehaviour
             {
                 _SpawnBullet();
             }
-            yield return new WaitForSeconds(Random.Range(.2f,1f));
+            yield return new WaitForSeconds(Random.Range(.1f,0.5f));
         }
     }
 
@@ -73,10 +73,8 @@ public class Fire : MonoBehaviour
     {
         cameraShaker.Shake();
         steam.Play();
-        
-        SoundManager.instance.StopSfx();
-        SoundManager.instance.PlaySingle("Explosion");
-        //SoundManager.instance.PlaySingle("Steam");
+
+        SoundManager.instance.PlayTmp("Explosion");
 
         while (num > 0 && GameManager.Instance.GameState == GameState.Play)
         {

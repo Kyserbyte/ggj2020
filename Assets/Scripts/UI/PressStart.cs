@@ -28,6 +28,7 @@ public class PressStart : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            SoundManager.instance.PlaySingle("Laser");
             SceneManager.LoadScene(1);
         }
     }

@@ -4,11 +4,13 @@ using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource efxSource;                   //Drag a reference to the audio source which will play the sound effects.
-    public AudioSource musicSource;                 //Drag a reference to the audio source which will play the music.
-    public static SoundManager instance = null;     //Allows other scripts to call functions from SoundManager.             
-    public float lowPitchRange = .95f;              //The lowest a sound effect will be randomly pitched.
-    public float highPitchRange = 1.05f;            //The highest a sound effect will be randomly pitched.
+    public AudioSource efxSource;
+    public AudioSource musicSource;
+    public AudioSource tmpSource;
+
+    public static SoundManager instance = null;
+    public float lowPitchRange = .95f;
+    public float highPitchRange = 1.05f;
 
     public List<TBAudioClip> sfxClips;
     public List<TBAudioClip> musicClips;
@@ -61,6 +63,25 @@ public class SoundManager : MonoBehaviour
         musicSource.clip = clip;
         musicSource.loop = true;
         musicSource.Play();
+    }
+
+    public void PlayTmp(string name, float vol = 1f)
+    {
+        TBAudioClip clip = sfxClips.Find((a) => { return a.name.Equals(name); });
+        if (clip != null && clip.clip != null)
+        {
+            PlayTmp(clip.clip, vol);
+        }
+    }
+
+    public void PlayTmp(AudioClip clip, float vol = 1f)
+    {
+        if (tmpSource.clip != clip || (tmpSource.clip == clip && !tmpSource.isPlaying))
+        {
+            tmpSource.volume = vol;
+            tmpSource.clip = clip;
+            tmpSource.Play();
+        }
     }
 
     public void StopMusic()
