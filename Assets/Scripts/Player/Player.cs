@@ -88,31 +88,37 @@ public class Player : MonoBehaviour
 
             transform.RotateAround(Vector3.zero, Vector3.forward, vel * Time.deltaTime);
 
-            if (invulnerable)
-            {
-                GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
-            } else
-            {
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
-            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Bullet bullet = other.gameObject.GetComponent<Bullet>();
-        if ( bullet != null && !invulnerable)
+        if (bullet != null && !invulnerable)
         {
             playerHp -= MAX_HP / LIVES;
             invulnerable = true;
             StartCoroutine(Invulnerability());
-        }  
+        }
     }
 
     IEnumerator Invulnerability()
     {
+        StartCoroutine(Blink());
         yield return new WaitForSeconds(2);
         invulnerable = false;
+    }
+
+    IEnumerator Blink()
+    {
+        while (invulnerable)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(0.1f);
+            GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1f);
+            yield return new WaitForSeconds(0.1f);
+        }
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
     }
 
 
