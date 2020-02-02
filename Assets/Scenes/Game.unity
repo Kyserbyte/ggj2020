@@ -436,6 +436,7 @@ MonoBehaviour:
   Bullet: {fileID: 811299469759673338, guid: ba6ef2aabb6f8af459bd668d6659bf8b, type: 3}
   Bullet_Forward_Force: 35
   randomness: 1
+  cameraShaker: {fileID: 1255325545}
 --- !u!1 &583686353
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 7.3142858, y: 7.3142858}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -584,7 +585,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 7.3142858, y: 7.3142858}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5791,6 +5792,7 @@ GameObject:
   - component: {fileID: 1255325544}
   - component: {fileID: 1255325543}
   - component: {fileID: 1255325542}
+  - component: {fileID: 1255325545}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5862,6 +5864,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1255325545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255325541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4afc63a4c4174f109a80eebd55d34a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 1255325544}
+  shakeDuration: 1
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1 &1263630945
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Fire : MonoBehaviour
     public GameObject Bullet;
     public float Bullet_Forward_Force;
     public float randomness = 1;
+    public CameraShake cameraShaker;
 
     private void Awake()
     {
@@ -69,6 +70,7 @@ public class Fire : MonoBehaviour
 
     private IEnumerator _Explosion(int num)
     {
+        cameraShaker.Shake();
         while (num > 0 && GameManager.Instance.GameState == GameState.Play)
         {
             _SpawnBullet();
